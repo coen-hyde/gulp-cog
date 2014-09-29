@@ -1,0 +1,19 @@
+{
+  "name": "gulp-snockets-chain",
+  "version": "0.1.0",
+  "description": "Use snockets to build a list of include files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Coen Hyde",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "through2": "~0.6.2",
+    "gulp-util": "~3.0.1",
+    "gulp-filter": "~1.0.2",
+    "lodash": "~2.4.1",
+    "minimatch": "~1.0.0",
+    "stream-combiner": "~0.2.1"
+  }
+}
