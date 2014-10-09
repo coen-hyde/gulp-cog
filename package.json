@@ -1,7 +1,7 @@
 {
-  "name": "gulp-snockets-chain",
+  "name": "gulp-include-chain",
   "version": "0.1.0",
-  "description": "Use snockets to build a list of include files",
+  "description": "Builds a list of includes in a similar way to snockets or sprockets. This plugin leaves the concatination/inclusion to gulp-concat. Works with sourcemaps.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -4,15 +4,14 @@ var _ = require('lodash');
 var gutil = require('gulp-util');
 var filter = require('gulp-filter');
 var minimatch = require('minimatch');
-// var File = require('vinyl');
 var PluginError = gutil.PluginError;
 
 // consts
-const PLUGIN_NAME = 'gulp-snockets-chain';
+const PLUGIN_NAME = 'gulp-include-chain';
 const DIRECTIVE_REGEX = /^[\/\s#]*?=\s*?((?:require|include)(?:_tree|_directory)?)\s+(.*$)/mg;
 
 // plugin level function (dealing with files)
-function snocketsChain(glob) {
+function includeChain(glob) {
   if (typeof glob === 'undefined') {
     var glob = '**/*';
   }
@@ -113,7 +112,7 @@ function snocketsChain(glob) {
     }
 
     // Create concat build list
-    file.masterFile = getIncludes(file);
+    file.concatList = getIncludes(file);
     concatFiles.push(file);
 
     this.push(file);
@@ -159,8 +158,24 @@ function snocketsChain(glob) {
     return manifestStream;
   }
 
+  /*
+   * Emit include files back into the stream. 
+   *
+   * Usually used with gulp-foreach and gulp-concat master files.
+   */ 
+  stream.includes = function() {
+    var includesStream = through.obj(function(masterFile, enc, cb) {
+      _.each(masterFile.concatList, function(fileName) {
+        includesStream.push(allFiles[fileName]);
+      })
+      cb();
+    });
+
+    return includesStream;
+  }
+
   return stream;
 };
 
 // exporting the plugin main function
-module.exports = snocketsChain;
+module.exports = includeChain;
