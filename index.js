@@ -114,9 +114,12 @@ function includeChain(glob) {
       return cb();
     }
 
-    // Create concat build list
-    file.concatList = getIncludes(file);
-    concatFiles.push(file);
+    // Attach includes to masterfile
+    file.includes = _.filter(_.map(getIncludes(file), function(filename) {
+      return allFiles[filename];
+    }, function(file) {
+      return !!file;
+    }));
 
     this.push(file);
     cb();
@@ -136,48 +139,23 @@ function includeChain(glob) {
     buildIncludesStream
   );
 
-  /*
-   * Generate a manifest file for each master concat file
-   */ 
-  stream.manifests = function() {
-    var manifestStream = through.obj(function(file, enc, cb) {
-      this.push(file);
-      cb();
-    }, function(cb) {
-      _.each(concatFiles, function(masterFile) {
-        var manifest = new gutil.File({
-          cwd: masterFile.cwd,
-          base: masterFile.base,
-          path: gutil.replaceExtension(masterFile.path, '.json'),
-          contents: new Buffer(JSON.stringify(masterFile.masterFile, null, '  '))
-        });
-
-        manifestStream.push(manifest);
-      });
-
-      cb();
-    });
-
-    return manifestStream;
-  }
-
-  /*
-   * Emit include files back into the stream. 
-   *
-   * Usually used with gulp-foreach and gulp-concat master files.
-   */ 
-  stream.includes = function() {
-    var includesStream = through.obj(function(masterFile, enc, cb) {
-      _.each(masterFile.concatList, function(fileName) {
-        includesStream.push(allFiles[fileName]);
-      })
-      cb();
-    });
-
-    return includesStream;
-  }
-
   return stream;
+};
+
+/*
+ * Emit include files back into the stream. 
+ *
+ * Usually used with gulp-foreach and gulp-concat master files.
+ */ 
+includeChain.includes = function() {
+  var includesStream = through.obj(function(masterFile, enc, cb) {
+    _.each(masterFile.includes, function(file) {
+      includesStream.push(file);
+    });
+    cb();
+  });
+
+  return includesStream;
 };
 
 // exporting the plugin main function
