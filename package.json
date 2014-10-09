@@ -4,7 +4,7 @@
   "description": "Builds a list of includes in a similar way to snockets or sprockets. This plugin leaves the concatination/inclusion to gulp-concat. Works with sourcemaps.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha"
   },
   "author": "Coen Hyde",
   "license": "BSD-2-Clause",
@@ -15,5 +15,11 @@
     "lodash": "~2.4.1",
     "minimatch": "~1.0.0",
     "stream-combiner": "~0.2.1"
+  },
+  "devDependencies": {
+    "gulp-foreach": "0.0.1",
+    "gulp": "~3.8.8",
+    "expect.js": "~0.3.1",
+    "stream-assert": "https://github.com/coen-hyde/stream-assert/tarball/nth-fix"
   }
 }

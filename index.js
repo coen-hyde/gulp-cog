@@ -53,7 +53,10 @@ function includeChain(glob) {
   }
 
   function getRelativeDir(file) {
-    var relativeDir = _.initial(file.relative.split('/')).join('/')+'/';
+    var relativeDir = _.initial(file.relative.split('/')).join('/');
+    if (relativeDir.length > 0) {
+      relativeDir += '/';
+    }
     return relativeDir;
   }
 
@@ -97,7 +100,7 @@ function includeChain(glob) {
       }
 
       possibleIncludes.push(fileName);
-    })
+    });
     
     return minimatch.match(possibleIncludes, globPattern);
   }
