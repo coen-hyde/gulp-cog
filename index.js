@@ -11,7 +11,7 @@ const PLUGIN_NAME = 'gulp-include-chain';
 const DIRECTIVE_REGEX = /^[\/\s#]*?=\s*?((?:require|include)(?:_tree|_directory)?)\s+(.*$)/mg;
 
 // plugin level function (dealing with files)
-function includeChain(glob) {
+function woz(glob) {
   if (typeof glob === 'undefined') {
     var glob = '**/*';
   }
@@ -147,7 +147,7 @@ function includeChain(glob) {
  *
  * Usually used with gulp-foreach and gulp-concat master files.
  */ 
-includeChain.includes = function() {
+woz.includes = function() {
   var includesStream = through.obj(function(masterFile, enc, cb) {
     _.each(masterFile.includes, function(file) {
       includesStream.push(file);
@@ -159,4 +159,4 @@ includeChain.includes = function() {
 };
 
 // exporting the plugin main function
-module.exports = includeChain;
+module.exports = woz;
