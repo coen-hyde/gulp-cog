@@ -1,6 +1,6 @@
-# gulp-cog 
+# gulp-cog
 
-[![Build Status](https://travis-ci.org/coen-hyde/gulp-cog.svg?branch=master)](https://travis-ci.org/coen-hyde/gulp-cog)
+[![Build Status](https://travis-ci.org/coen-hyde/gulp-cog.svg?branch=master)](https://travis-ci.org/coen-hyde/gulp-cog) [![](http://img.shields.io/npm/v/gulp-cog.svg?style=flat)](https://www.npmjs.org/package/gulp-cog)
 
 Builds a list of includes in a similar way to snockets or sprockets but searches for available files from upstream pipes. This allows you to include js files from sources other than the disk, such as coffeescript or compiled templates. This plugin also leaves the concatination/inclusion to [gulp-concat](https://github.com/wearefractal/gulp-concat) so [gulp-sourcemaps](https://github.com/floridoo/gulp-sourcemaps) works.
 
