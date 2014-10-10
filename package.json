@@ -23,7 +23,8 @@
     "gulp": "~3.8.8",
     "expect.js": "~0.3.1",
     "stream-assert": "https://github.com/coen-hyde/stream-assert/tarball/nth-fix",
-    "stream-combiner": "~0.2.1"
+    "stream-combiner": "~0.2.1",
+    "mocha": "~1.21.4"
   },
   "engines": {
     "node": ">= 0.10"
