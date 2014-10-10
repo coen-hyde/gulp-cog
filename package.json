@@ -5,6 +5,11 @@
   "homepage": "http://github.com/coen-hyde/gulp-cog",
   "repository": "git://github.com/coen-hyde/gulp-cog.git",
   "author": "Coen Hyde (http://coenhyde.com/)",
+  "keywords": [
+    "gulpplugin",
+    "snockets",
+    "sprockets",
+  ],
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha"
