@@ -39,6 +39,7 @@ gulp.task('js', function() {
     }))
     .pipe(gulp.dest('dist'));
 });
+```
 
 ### Sourcemaps
 
