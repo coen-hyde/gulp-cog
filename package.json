@@ -8,7 +8,7 @@
   "keywords": [
     "gulpplugin",
     "snockets",
-    "sprockets",
+    "sprockets"
   ],
   "main": "index.js",
   "scripts": {
