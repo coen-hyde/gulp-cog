@@ -63,6 +63,7 @@ gulp.task('js', function() {
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'))
 });
+```
 
 ## Limitations
 
