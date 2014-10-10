@@ -1,4 +1,6 @@
-# gulp-cog [![build status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url]
+# gulp-cog 
+
+[![build status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url]
 
 Builds a list of includes in a similar way to snockets or sprockets but searches for available files from upstream pipes. This allows you to include js files from sources other than the disk, such as coffeescript or compiled templates. This plugin also leaves the concatination/inclusion to [gulp-concat](https://github.com/wearefractal/gulp-concat) so [gulp-sourcemaps](https://github.com/floridoo/gulp-sourcemaps) works.
 
