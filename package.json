@@ -14,7 +14,7 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha"
   },
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "dependencies": {
     "through2": "~0.6.2",
     "gulp-util": "~3.0.1",
