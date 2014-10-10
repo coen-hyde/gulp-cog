@@ -17,7 +17,7 @@ Add includes to the top of your files. Two directives are supported. `require_tr
 //= require dir/file1
 ```
 
-Then use gulp-woz in you gulp-file.
+Then use gulp-woz in you gulpfile.
 
 ```javascript
 var woz = require('gulp-woz');
