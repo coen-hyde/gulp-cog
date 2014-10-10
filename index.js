@@ -7,7 +7,7 @@ var minimatch = require('minimatch');
 var PluginError = gutil.PluginError;
 
 // consts
-const PLUGIN_NAME = 'gulp-include-chain';
+const PLUGIN_NAME = 'gulp-cog';
 const DIRECTIVE_REGEX = /^[\/\s#]*?=\s*?((?:require|include)(?:_tree|_directory)?)\s+(.*$)/mg;
 
 // plugin level function (dealing with files)
