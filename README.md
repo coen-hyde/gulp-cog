@@ -10,7 +10,7 @@ Install package with NPM and add it to your development dependencies:
 
 ## Usage
 
-Add includes to the top of your files. Two directives are supported. `require_tree` which include all files found in the directory specified and `require` which will include only the file specified.
+Add includes to the top of your files. Two directives are supported. `require_tree` which includes all files found in the directory specified and `require` which will include only the file specified.
 
 ```javascript
 //= require_tree treedir
@@ -27,12 +27,14 @@ var foreach = require('gulp-foreach');
 gulp.task('js', function() {
   // Include all files you want woz to know about in the pipeline
   gulp.src('app/**/*.js') 
-    // Select the files woz should look for includes in. This will also filter the stream to match the glob provided
+    // Select the files woz should look for includes in. 
+    // This will also filter the stream to match the glob provided
     .pipe(woz('app/*.js'))
     // Loop over the filtered files
     .pipe(foreach(function(stream, masterFile) {
       return stream
-        // Emit the files in order matching includes woz found in masterFile back into the stream.
+        // Emit the files in order matching includes woz found in masterFile
+        // back into the stream.
         .pipe(woz.includes())
         // Concat all the files together.
         .pipe(concat(masterFile.relative))
