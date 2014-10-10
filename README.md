@@ -1,4 +1,4 @@
-# gulp-woz
+# gulp-cog
 
 Builds a list of includes in a similar way to snockets or sprockets but searches for available files from upstream pipes. This allows you to include js files from sources other than the disk, such as coffeescript or compiled templates. This plugin also leaves the concatination/inclusion to [gulp-concat](https://github.com/wearefractal/gulp-concat) so [gulp-sourcemaps](https://github.com/floridoo/gulp-sourcemaps) works.
 
@@ -6,7 +6,7 @@ Builds a list of includes in a similar way to snockets or sprockets but searches
 
 Install package with NPM and add it to your development dependencies:
 
-`npm install --save-dev gulp-woz`
+`npm install --save-dev gulp-cog`
 
 ## Usage
 
@@ -17,25 +17,25 @@ Add includes to the top of your files. Two directives are supported. `require_tr
 //= require dir/file1
 ```
 
-Then use gulp-woz in you gulpfile.
+Then use gulp-cog in you gulpfile.
 
 ```javascript
-var woz = require('gulp-woz');
+var cog = require('gulp-cog');
 var concat = require('gulp-concat');
 var foreach = require('gulp-foreach');
 
 gulp.task('js', function() {
-  // Include all files you want woz to know about in the pipeline
+  // Include all files you want cog to know about in the pipeline
   gulp.src('app/**/*.js') 
-    // Select the files woz should look for includes in. 
+    // Select the files cog should look for includes in. 
     // This will also filter the stream to match the glob provided
-    .pipe(woz('app/*.js'))
+    .pipe(cog('app/*.js'))
     // Loop over the filtered files
     .pipe(foreach(function(stream, masterFile) {
       return stream
-        // Emit the files in order matching includes woz found in masterFile
+        // Emit the files in order matching includes cog found in masterFile
         // back into the stream.
-        .pipe(woz.includes())
+        .pipe(cog.includes())
         // Concat all the files together.
         .pipe(concat(masterFile.relative))
     }))
@@ -48,7 +48,7 @@ gulp.task('js', function() {
 Follow directions from [gulp-sourcemaps](https://github.com/floridoo/gulp-sourcemaps). Here's an example:
 
 ```javascript
-var woz = require('gulp-woz');
+var cog = require('gulp-cog');
 var concat = require('gulp-concat');
 var foreach = require('gulp-foreach');
 var sourcemaps = require('gulp-sourcemaps');
@@ -56,10 +56,10 @@ var sourcemaps = require('gulp-sourcemaps');
 gulp.task('js', function() {
   gulp.src('app/**/*.js') 
     .pipe(sourcemaps.init())
-    .pipe(woz('*.js')) 
+    .pipe(cog('*.js')) 
     .pipe(foreach(function(stream, masterFile) {
       return stream
-        .pipe(woz.includes())
+        .pipe(cog.includes())
         .pipe(concat(masterFile.relative))
     }))
     .pipe(sourcemaps.write())
