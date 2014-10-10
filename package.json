@@ -1,12 +1,14 @@
 {
   "name": "gulp-cog",
   "version": "0.1.0",
-  "description": "Builds a list of includes in a similar way to snockets or sprockets. This plugin leaves the concatination/inclusion to gulp-concat. Works with sourcemaps.",
+  "description": "Builds a list of includes in a similar way to snockets or sprockets but searches for available files from upstream pipes. This allows you to include js files from sources other than the disk, such as coffeescript or compiled templates. This plugin also leaves the concatination/inclusion to gulp-concat so gulp-sourcemaps works.",
+  "homepage": "http://github.com/coen-hyde/gulp-cog",
+  "repository": "git://github.com/coen-hyde/gulp-cog.git",
+  "author": "Coen Hyde (http://coenhyde.com/)",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha"
   },
-  "author": "Coen Hyde",
   "license": "BSD-2-Clause",
   "dependencies": {
     "through2": "~0.6.2",
@@ -22,5 +24,14 @@
     "expect.js": "~0.3.1",
     "stream-assert": "https://github.com/coen-hyde/stream-assert/tarball/nth-fix",
     "stream-combiner": "~0.2.1"
-  }
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/coen-hyde/gulp-cog/raw/master/LICENSE"
+    }
+  ]
 }
