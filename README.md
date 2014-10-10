@@ -6,7 +6,7 @@ Builds a list of includes in a similar way to snockets or sprockets but searches
 
 Install package with NPM and add it to your development dependencies:
 
-`npm install --save-dev gulp-include-chain`
+`npm install --save-dev gulp-woz`
 
 ## Usage
 
