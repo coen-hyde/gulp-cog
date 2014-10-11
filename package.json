@@ -1,6 +1,6 @@
 {
   "name": "gulp-cog",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Builds a list of includes in a similar way to snockets or sprockets but searches for available files from upstream pipes. This allows you to include js files from sources other than the disk, such as coffeescript or compiled templates. This plugin also leaves the concatination/inclusion to gulp-concat so gulp-sourcemaps works.",
   "homepage": "http://github.com/coen-hyde/gulp-cog",
   "repository": "git://github.com/coen-hyde/gulp-cog.git",
