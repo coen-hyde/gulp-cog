@@ -39,7 +39,7 @@ function cog(glob) {
 
     // For every require fetch it's matching files
     var fileLists = _.map(matches, function(match) {
-      return globMatch(match, file);
+      return globMatch(match, file).sort();
     });
 
     // Merge all matching file lists into one concat list
